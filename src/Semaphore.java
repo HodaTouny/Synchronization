@@ -1,20 +1,20 @@
 package src;
 
 class Semaphore {
-    protected int value = 0;
+    private int value = 0;
 
-    protected Semaphore(int initial) {
+    public Semaphore(int initial) {
         value = initial;
     }
 
     public synchronized void Wait(Device device) throws InterruptedException {
         value--;
         if (value < 0) {
+            System.out.println("- " + device.getDeviceType() + " (" + device.getDeviceName() + ") Arrived and Waiting");
             wait();
-            System.out.println("- "+ device.getDeviceType() + " (" + device.getDeviceName() + ") Arrived and Waiting");
-            return;
+        } else {
+            System.out.println("- " + device.getDeviceType() + " (" + device.getDeviceName() + ") Arrived");
         }
-        System.out.println("- "+ device.getDeviceType() + " (" + device.getDeviceName() + ") Arrived");
     }
 
     public synchronized void Signal() {
