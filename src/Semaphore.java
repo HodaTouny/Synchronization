@@ -3,10 +3,6 @@ package src;
 class Semaphore {
     protected int value = 0;
 
-    protected Semaphore() {
-        value = 0;
-    }
-
     protected Semaphore(int initial) {
         value = initial;
     }
