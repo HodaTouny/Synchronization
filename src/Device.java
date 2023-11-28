@@ -4,8 +4,15 @@ class Device extends Thread {
     private String name;
     private String type;
     private Router router;
+    private int ConnectionID;
 
+    public void setConnectionID(int con) {
+        ConnectionID = con;
+    }
 
+    public int getConnectionID() {
+        return ConnectionID;
+    }
 
     public Device(String name, String type, Router router) {
         this.name = name;
@@ -21,13 +28,13 @@ class Device extends Thread {
         return type;
     }
 
-
     @Override
     public void run() {
         try {
             router.connect(this);
             router.performOnlineActivity(this);
             router.disconnect(this);
-        } catch (InterruptedException ignored) {}
+        } catch (InterruptedException ignored) {
+        }
     }
 }
