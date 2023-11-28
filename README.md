@@ -21,16 +21,3 @@ Routers can be configured to restrict the number of concurrent connections. In t
 ## Implementation
 
 The simulation is implemented using Java, threading, and semaphores. The code ensures that the router manages connections safely and effectively.
-
-### Classes
-
-1. **Router**: Represents the Wi-Fi router with limited connections. Utilizes semaphores for connection management.
-
-2. **Client**: Represents a client device. Each client runs as a thread, simulating login, online activity, and logout.
-
-### Usage
-
-To run the simulation, execute the main program:
-
-```bash
-java RouterSimulationMain
